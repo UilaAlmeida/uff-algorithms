@@ -3,19 +3,10 @@
 #include <string.h>
 #include <math.h>
 
-//------------------------------ FUNCOES --------------------------------------
+//------------------------------ FUNCTIONS --------------------------------------
 
 #define INVALIDO -1
 
-void converte(char numero[], int base_entrada, int base_saida);
-void converte(char numero[], int base_entrada, int base_saida){
-	int numero_base_10 = converte_base_10(numero, base_entrada, base_saida);
-	if(base_saida != 10){
-		converte_base_x(numero, numero_base_10, base_saida);
-	}
-}
-
-char int_hexadecimal(int digito);
 char int_hexadecimal(int digito){
 	switch(digito){
 		case 10:
@@ -35,7 +26,6 @@ char int_hexadecimal(int digito){
 	}
 }
 
-int hexadecimal_int(char digito);
 int hexadecimal_int(char digito){
 	switch(digito){
 		case 'A':
@@ -55,7 +45,6 @@ int hexadecimal_int(char digito){
 	}
 }
 
-int char_int(char digito, int base_entrada);
 int char_int(char digito, int base_entrada){
 	//printf("[DEBUG] Transformando em inteiro digito %c\n", digito);
 	if(digito >= '0' && digito <= '9'){
@@ -67,7 +56,6 @@ int char_int(char digito, int base_entrada){
 	return INVALIDO;
 }
 
-char int_char(int digito, int base_saida);
 char int_char(int digito, int base_saida){
 	//printf("[DEBUG] Transformando em char digito %d\n", digito);
 	if(digito >= 0 && digito <= 9){
@@ -79,7 +67,6 @@ char int_char(int digito, int base_saida){
 	return INVALIDO + '0';
 }
 
-int converte_base_x(char numero[], int numero_base_10, int base_saida);
 int converte_base_x(char numero[], int numero_base_10, int base_saida){
 	//printf("\n[DEBUG] Iniciando conversao do numero decimal %d para base %d\n", numero_base_10, base_saida);
 
@@ -104,7 +91,6 @@ int converte_base_x(char numero[], int numero_base_10, int base_saida){
 	return 1;
 }
 
-int converte_base_10(char numero[], int base_entrada, int base_saida);
 int converte_base_10(char numero[], int base_entrada, int base_saida){
 	//printf("\n[DEBUG] Iniciando conversao do numero %s para base %d\n", numero, base_entrada);
 
@@ -129,7 +115,6 @@ int converte_base_10(char numero[], int base_entrada, int base_saida){
 	return resultado;
 }
 
-int numero_valido(char numero[], int base_entrada);
 int numero_valido(char numero[], int base_entrada){
 	//printf("\n[DEBUG] Iniciando validacao do numero %s na base %d", numero, base_entrada);
 
@@ -149,7 +134,14 @@ int numero_valido(char numero[], int base_entrada){
 	return valido;
 }
 
-//------------------------------ FUNCOES --------------------------------------
+void converte(char numero[], int base_entrada, int base_saida){
+	int numero_base_10 = converte_base_10(numero, base_entrada, base_saida);
+	if(base_saida != 10){
+		converte_base_x(numero, numero_base_10, base_saida);
+	}
+}
+
+//------------------------------ FUNCTIONS --------------------------------------
 
 int main()
 {
