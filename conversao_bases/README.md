@@ -4,12 +4,12 @@
 
 # Instruções de uso
 
-1. Compile o programa
+* Compile o programa
 ```
 	$ gcc -o conversao_bases conversao_bases.c -lm
 ```
 
-2. Execute o programa informando os dados solicitados, por exemplo:
+* Execute o programa informando os dados solicitados, por exemplo:
 ``` 
 	$ ./conversao_bases
     Digite um numero: 1101
